@@ -1,1 +1,1 @@
-addSbtPlugin("org.xerial.sbt" % "sbt-jcheckstyle" % "0.2.1")
+addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "1.0.0")

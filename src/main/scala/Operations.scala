@@ -1,6 +1,6 @@
 class Operations {
 
-  def sumCalculator(operationType: String,number1: Int,number2: Int,f:(String,Int,Int)=>Int)=
+  def sumCalculator(operationType: String,number1: Int,number2: Int,f:(String,Int,Int)=>Int): Int=
   {
     f(operationType,number1,number2)
   }
@@ -20,7 +20,7 @@ class Operations {
     def breakAndAdd(inputList: List[Int],currentSum: Int):Int={
       inputList match{
         case head::Nil => head + currentSum
-        case head::tail => breakAndAdd(tail,currentSum+head)
+        case head::tail => breakAndAdd(tail,currentSum + head)
         case _ => -1
       }
     }
