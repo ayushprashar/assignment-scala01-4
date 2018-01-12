@@ -8,9 +8,22 @@ class Operations {
   def sumType(operationType: String,input1: Int,input2: Int): Int ={
 
     operationType.toLowerCase match {
-      case "square" => sumCalculator(operationType,input1,input2,(operationType,num1,num2)=>num1*num1 + num2*num2)
-      case "cube" => sumCalculator(operationType,input1,input2,(operationType,num1,num2)=>num1*num1*num1 + num2*num2*num2)
-      case "ints" => sumCalculator(operationType,input1,input2,(operationType,num1,num2)=>num1 + num2)
+      case "square" => sumCalculator(operationType,input1,input2,(_,num1,num2)=>num1*num1 + num2*num2)
+      case "cube" => sumCalculator(operationType,input1,input2,(_, num1, num2)=>num1*num1*num1 + num2*num2*num2)
+      case "ints" => sumCalculator(operationType,input1,input2,(_, num1, num2)=>num1 + num2)
+      case _ => -1
+    }
+  }
+
+  def performListOperation(inputList: List[Int],f:(List[Int])=>Int):Int={
+    f(inputList)
+  }
+
+  def listOperations(mainList: List[Int],operationTypeOnList: String): Int ={
+    operationTypeOnList.toLowerCase match {
+      case "add" => performListOperation(mainList,sumOfList)
+      case "multiply" => performListOperation(mainList,productOfList)
+      case "max" => performListOperation(mainList,getMax)
       case _ => -1
     }
   }
